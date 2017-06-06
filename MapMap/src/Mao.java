@@ -61,8 +61,7 @@ class Graph{
                 if(!check[i] && maps[min_index][i]!=0){
                     if(distance[i]>distance[min_index]+maps[min_index][i]){
                         distance[i] = distance[min_index]+maps[min_index][i];
-                        System.out.println("->"+i);
-                     
+                    
                     }
                 }
             }
@@ -116,7 +115,7 @@ public class Mao extends JFrame implements ActionListener{
 		
 		add(jp); // JFrame에 jp라는 패널 추가
 	
-		setSize(600, 300); // 윈도우의 크기 가로x세로
+		setSize(1500, 700); // 윈도우의 크기 가로x세로
 		setVisible(true); // 창을 보여줄떄 true, 숨길때 false
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // x 버튼을 눌렀을때 종료
 }
@@ -138,26 +137,12 @@ public class Mao extends JFrame implements ActionListener{
 		g.input(9, 10, 6);
 		int start=Integer.parseInt(tf1.getText());
 		int end=Integer.parseInt(tf2.getText());
-		//g.dijkstra(start);
-		System.out.println(start);
+		g.dijkstra(start,end);
+		//System.out.println(start);
 	}
 
 	public  static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Graph g=new Graph(10);
-		g.input(1, 3, 2);
-		g.input(3, 2, 1);
-		g.input(3, 4, 2);
-		g.input(2, 6, 3);
-		g.input(2, 7, 5);
-		g.input(7, 6, 4);
-		g.input(7, 8, 2);
-		g.input(8, 4, 3);
-		g.input(8, 9, 3);
-		g.input(4, 5, 1);
-		g.input(5, 9, 4);
-		g.input(9, 10, 6);
-		g.dijkstra(3,5);
 		new Mao();
 
 	}
