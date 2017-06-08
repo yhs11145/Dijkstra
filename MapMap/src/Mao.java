@@ -18,7 +18,7 @@ class Graph{
         maps[j][i] = w;
     }
  
-    public void dijkstra(int first,int end){
+    public int dijkstra(int first,int end){
         int distance[] = new int[n+1];          //최단 거리를 저장할 변수
         boolean[] check = new boolean[n+1];     //해당 노드를 방문했는지 체크할 변수
          
@@ -76,6 +76,8 @@ class Graph{
         }
         System.out.println("");
          */
+        
+        return distance[end];
     }
 }
 public class Mao extends JFrame implements ActionListener{
@@ -86,6 +88,7 @@ public class Mao extends JFrame implements ActionListener{
 	JLabel jl2=new JLabel("경로의 도착점을 입력하세요.");//jl2의 초기화
 	JLabel jm1=new JLabel();
 	JLabel jm2=new JLabel();
+	JLabel jm3=new JLabel();
 	JTextField tf1=new JTextField(2);
 	JTextField tf2=new JTextField(2);
 	ImageIcon icon = new ImageIcon("images/img_ddd.png");
@@ -107,7 +110,9 @@ public class Mao extends JFrame implements ActionListener{
 	    getContentPane().add(jm1);
 	    jm2.setIcon(icon2);
 	    jm2.setBounds(0, 0, getSize().width, getSize().height);
-	     getContentPane().add(jm2);
+	    getContentPane().add(jm2);
+		jm3.setBounds(0, 0, getSize().width, getSize().height);
+	    getContentPane().add(jm3);
 
 		jb.addActionListener(this);
 		jp.add(jb); // jp라는 패널에 jb라는 버튼 추가
@@ -141,7 +146,9 @@ public class Mao extends JFrame implements ActionListener{
 		{
 			JOptionPane.showMessageDialog(jp,"잘못 입력했습니다. 다시입력하세요.");
 		}
-		g.dijkstra(start,end);
+		jm3.setText("최단거리 : " + g.dijkstra(start,end));
+		add(jm3);
+		
 		//System.out.println(start);
 	}
 
