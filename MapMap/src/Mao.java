@@ -137,6 +137,10 @@ public class Mao extends JFrame implements ActionListener{
 		g.input(9, 10, 6);
 		int start=Integer.parseInt(tf1.getText());
 		int end=Integer.parseInt(tf2.getText());
+		if(start>10||end>10)
+		{
+			JOptionPane.showMessageDialog(jp,"잘못 입력했습니다. 다시입력하세요.");
+		}
 		g.dijkstra(start,end);
 		//System.out.println(start);
 	}
